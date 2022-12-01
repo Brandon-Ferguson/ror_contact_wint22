@@ -27,7 +27,8 @@ class Api::ListsController < ApplicationController
   end
 
   def destroy
-    @list.destroyrender json: { message: 'List deleted '}
+    @list.destroy 
+    render json: { message: 'List deleted '}
   end
 
   private
@@ -37,7 +38,7 @@ class Api::ListsController < ApplicationController
     end
 
     def set_list
-      @list = List.find(paramds[:id])
+      @list = List.find(params[:id])
     end
 
 end
